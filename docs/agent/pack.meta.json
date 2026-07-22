@@ -1,8 +1,8 @@
 {
   "packVersion": "1.0.0",
-  "generatedAt": "2026-07-22T09:31:23.529Z",
+  "generatedAt": "2026-07-22T09:32:22.868Z",
   "generator": "claude-for-oss@0.1.1",
-  "structureHash": "0fd342b4dbc98516",
+  "structureHash": "16e9bdcaa9b3375e",
   "root": "/home/crduser/Projects/claude-for-oss",
   "primaryLanguage": "TypeScript",
   "packageManager": "npm",

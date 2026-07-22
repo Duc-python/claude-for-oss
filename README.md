@@ -86,7 +86,8 @@ Requires Node.js ≥ 18.
 
 - Catalog of oriented repos: [`docs/awesome-agent-ready.md`](docs/awesome-agent-ready.md)
 - Badge assets: [`badges/`](badges/)
-- Keep CI green with [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml)
+- Keep CI green with [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml) and [`ci.yml`](.github/workflows/ci.yml)
+- Longer-term plan: [`ROADMAP.md`](ROADMAP.md)
 
 ## License
 
