@@ -83,6 +83,7 @@ Requires Node.js ≥ 18. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 ## Adoption
 
 - Catalog: [`docs/awesome-agent-ready.md`](docs/awesome-agent-ready.md)
+- Upstream practice checklist (first 30 PRs): [`docs/upstream-pr-checklist-30.md`](docs/upstream-pr-checklist-30.md)
 - Badges: [`badges/`](badges/)
 - Roadmap: [`ROADMAP.md`](ROADMAP.md)
 
