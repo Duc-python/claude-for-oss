@@ -9,6 +9,7 @@ Generated for agents exploring this repo. Only lists paths that existed when the
 | `.claude/` | top-level directory |
 | `.github/` | top-level directory |
 | `action/` | top-level directory |
+| `badges/` | top-level directory |
 | `docs/` | documentation |
 | `schema/` | top-level directory |
 | `src/` | primary source |
@@ -43,7 +44,8 @@ Make any open-source repo **agent-ready**: generate and keep fresh an *orientati
 
 This is **not** another coding agent. It is a **context + contribution map** you commit to the repo.
 
-[![Agent-oriented](https://img.shields.io/badge/agent-oriented-0A7-blue)](#orientation-pack)
+[![agent-oriented](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/agent-oriented.svg)](docs/awesome-agent-ready.md)
+[![Claude-ready](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/claude-ready.svg)](docs/awesome-agent-ready.md)
 
 ## Quick start
 
@@ -81,13 +83,5 @@ Schema: [`schema/pack.schema.json`](schema/pack.schema.json).
 ## CLI
 
 ```bash
-cfo init [-C path] [--dry-run] [--no-claude-md]
-cfo refresh [-C path] [--force] [--dry-run]
-cfo check [-C path] [--json]          # exit 1 if stale
-cfo pr [-C path] [--draft] [--base main]
-```
-
-## GitHub Action
-
-Fail CI when the
+cfo init [-C path] [--dry-run] [--no-claude
 ```

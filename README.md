@@ -4,7 +4,8 @@ Make any open-source repo **agent-ready**: generate and keep fresh an *orientati
 
 This is **not** another coding agent. It is a **context + contribution map** you commit to the repo.
 
-[![Agent-oriented](https://img.shields.io/badge/agent-oriented-0A7-blue)](#orientation-pack)
+[![agent-oriented](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/agent-oriented.svg)](docs/awesome-agent-ready.md)
+[![Claude-ready](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/claude-ready.svg)](docs/awesome-agent-ready.md)
 
 ## Quick start
 
@@ -80,6 +81,12 @@ npm run cfo -- init --dry-run
 ```
 
 Requires Node.js ≥ 18.
+
+## Adoption (Phase 3)
+
+- Catalog of oriented repos: [`docs/awesome-agent-ready.md`](docs/awesome-agent-ready.md)
+- Badge assets: [`badges/`](badges/)
+- Keep CI green with [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml)
 
 ## License
 
