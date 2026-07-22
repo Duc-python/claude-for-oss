@@ -52,4 +52,4 @@ See [`docs/agent/architecture.md`](docs/agent/architecture.md) and [`docs/agent/
 Pack format: [`docs/agent/PACK_SPEC.md`](docs/agent/PACK_SPEC.md)
 
 ---
-_Pack structure hash: `f88ace80c9980950`_
+_Pack structure hash: `c8b200a86da2d887`_

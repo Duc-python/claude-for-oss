@@ -6,22 +6,21 @@ This is **not** another coding agent. It is a **context + contribution map** you
 
 [![agent-oriented](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/agent-oriented.svg)](docs/awesome-agent-ready.md)
 [![Claude-ready](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/claude-ready.svg)](docs/awesome-agent-ready.md)
+[![CI](https://github.com/Duc-python/claude-for-oss/actions/workflows/ci.yml/badge.svg)](https://github.com/Duc-python/claude-for-oss/actions/workflows/ci.yml)
 
 ## Quick start
 
-The package is not on the public npm registry yet (npm publish requires 2FA). Install from **GitHub** instead:
-
 ```bash
-# one-shot (recommended)
+# one-shot
 npx -y --package=github:Duc-python/claude-for-oss#main cfo init
 npx -y --package=github:Duc-python/claude-for-oss#main cfo check
 
-# or install globally from GitHub
+# global install
 npm install -g github:Duc-python/claude-for-oss#main
 cfo init
 cfo refresh
 cfo check
-cfo pr          # requires GitHub CLI (`gh`)
+cfo pr   # requires GitHub CLI (`gh`)
 ```
 
 ## Orientation pack
@@ -60,9 +59,9 @@ Fail CI when the pack is missing or stale (for example after `package.json` or l
     refresh-on-stale: "false"
 ```
 
-Example workflow in this repo: [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml).
+Example workflow: [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml).
 
-## Validation (Phase 0)
+## Validation
 
 ```bash
 npm run validate
@@ -79,14 +78,13 @@ npm test
 npm run cfo -- init --dry-run
 ```
 
-Requires Node.js ≥ 18.
+Requires Node.js ≥ 18. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## Adoption (Phase 3)
+## Adoption
 
-- Catalog of oriented repos: [`docs/awesome-agent-ready.md`](docs/awesome-agent-ready.md)
-- Badge assets: [`badges/`](badges/)
-- Keep CI green with [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml) and [`ci.yml`](.github/workflows/ci.yml)
-- Longer-term plan: [`ROADMAP.md`](ROADMAP.md)
+- Catalog: [`docs/awesome-agent-ready.md`](docs/awesome-agent-ready.md)
+- Badges: [`badges/`](badges/)
+- Roadmap: [`ROADMAP.md`](ROADMAP.md)
 
 ## License
 

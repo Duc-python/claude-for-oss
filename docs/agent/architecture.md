@@ -47,22 +47,21 @@ This is **not** another coding agent. It is a **context + contribution map** you
 
 [![agent-oriented](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/agent-oriented.svg)](docs/awesome-agent-ready.md)
 [![Claude-ready](https://raw.githubusercontent.com/Duc-python/claude-for-oss/main/badges/claude-ready.svg)](docs/awesome-agent-ready.md)
+[![CI](https://github.com/Duc-python/claude-for-oss/actions/workflows/ci.yml/badge.svg)](https://github.com/Duc-python/claude-for-oss/actions/workflows/ci.yml)
 
 ## Quick start
 
-The package is not on the public npm registry yet (npm publish requires 2FA). Install from **GitHub** instead:
-
 ```bash
-# one-shot (recommended)
+# one-shot
 npx -y --package=github:Duc-python/claude-for-oss#main cfo init
 npx -y --package=github:Duc-python/claude-for-oss#main cfo check
 
-# or install globally from GitHub
+# global install
 npm install -g github:Duc-python/claude-for-oss#main
 cfo init
 cfo refresh
 cfo check
-cfo pr          # requires GitHub CLI (`gh`)
+cfo pr   # requires GitHub CLI (`gh`)
 ```
 
 ## Orientation pack
@@ -75,5 +74,5 @@ cfo pr          # requires GitHub CLI (`gh`)
 | `docs/agent/blast-radius.md` | Heuristic dependency hints |
 | `docs/agent/pack.meta.json` | Structure hash for freshness |
 | `.github/GOOD_FIRST_AGENT.md` | Issue template for agent-friendly work |
-| `.claude/skills
+| `.cla
 ```

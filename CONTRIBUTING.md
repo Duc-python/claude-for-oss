@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping grow Claude-for-OSS.
+Thanks for helping improve Claude-for-OSS.
 
 ## Setup
 
@@ -11,35 +11,32 @@ npm test
 npm run validate
 ```
 
-## Project shape
+## Layout
 
-- `src/` — CLI + analyzer + pack generator
-- `action/check` — composite GitHub Action for freshness
-- `validation/` — Phase 0 discovery-cost gate
+- `src/` — CLI, analyzer, pack generator
+- `action/check` — composite GitHub Action for freshness checks
+- `validation/` — discovery-cost validation fixtures and survey
 - `docs/awesome-agent-ready.md` — adoption catalog
 
-## Rules
+## Guidelines
 
-- Prefer verified on-disk paths in generated docs (no invented modules).
-- Keep structure-hash inputs free of pack outputs so `init` does not self-stale.
-- Author commits as yourself; do not rely on AI co-author trailers for attribution.
-- Add/adjust fixtures under `validation/` when changing discovery-cost math.
+- Cite only paths that exist on disk in generated docs.
+- Keep structure-hash inputs independent of pack outputs so `init` does not invalidate itself.
+- Prefer clear, attributable commits.
+- Extend `validation/` when changing discovery-cost behavior.
 
-## Release
-
-### GitHub (default while npm 2FA is blocked)
+## Install from source
 
 ```bash
 npm install -g github:Duc-python/claude-for-oss#main
-# or
 npx -y --package=github:Duc-python/claude-for-oss#main cfo check
 ```
 
-`prepare` runs `tsc` on install from git.
+The `prepare` script compiles TypeScript on install from git.
 
-### npmjs.com (when you can enable 2FA / a publish token)
+## Releasing
 
-1. Bump `package.json` version
-2. `npm run build && npm test`
-3. Tag `vX.Y.Z` and push
-4. `npm publish --access public`
+1. Bump the version in `package.json`
+2. Run `npm run build && npm test && npm run validate`
+3. Tag `vX.Y.Z` and push to `main`
+4. Publish artifacts as needed (GitHub release and/or npm)
