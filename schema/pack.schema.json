@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/claude-for-oss/claude-for-oss/schema/pack.schema.json",
+  "title": "Claude-for-OSS Orientation Pack Meta",
+  "type": "object",
+  "required": [
+    "packVersion",
+    "generatedAt",
+    "generator",
+    "structureHash",
+    "root",
+    "commands",
+    "topLevelDirs",
+    "ciWorkflows"
+  ],
+  "properties": {
+    "packVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "generator": { "type": "string" },
+    "structureHash": { "type": "string", "minLength": 8 },
+    "root": { "type": "string" },
+    "primaryLanguage": { "type": "string" },
+    "packageManager": { "type": "string" },
+    "commands": {
+      "type": "object",
+      "properties": {
+        "install": { "type": "string" },
+        "build": { "type": "string" },
+        "test": { "type": "string" },
+        "lint": { "type": "string" },
+        "typecheck": { "type": "string" },
+        "dev": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "topLevelDirs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ciWorkflows": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

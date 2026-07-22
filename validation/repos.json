@@ -1,0 +1,12 @@
+[
+  { "id": "express", "owner": "expressjs", "repo": "express" },
+  { "id": "axios", "owner": "axios", "repo": "axios" },
+  { "id": "lodash", "owner": "lodash", "repo": "lodash" },
+  { "id": "flask", "owner": "pallets", "repo": "flask" },
+  { "id": "requests", "owner": "psf", "repo": "requests" },
+  { "id": "gin", "owner": "gin-gonic", "repo": "gin" },
+  { "id": "cobra", "owner": "spf13", "repo": "cobra" },
+  { "id": "ripgrep", "owner": "BurntSushi", "repo": "ripgrep" },
+  { "id": "click", "owner": "pallets", "repo": "click" },
+  { "id": "dayjs", "owner": "iamkun", "repo": "dayjs" }
+]

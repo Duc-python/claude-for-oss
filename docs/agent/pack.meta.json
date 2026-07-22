@@ -1,0 +1,27 @@
+{
+  "packVersion": "1.0.0",
+  "generatedAt": "2026-07-22T08:59:36.825Z",
+  "generator": "claude-for-oss@0.1.0",
+  "structureHash": "42861166864c2325",
+  "root": "/home/crduser/Projects/claude-for-oss",
+  "primaryLanguage": "TypeScript",
+  "packageManager": "npm",
+  "commands": {
+    "install": "npm install",
+    "test": "npm run test",
+    "build": "npm run build",
+    "dev": "npm run dev"
+  },
+  "topLevelDirs": [
+    ".claude",
+    ".github",
+    "action",
+    "docs",
+    "schema",
+    "src",
+    "validation"
+  ],
+  "ciWorkflows": [
+    ".github/workflows/orientation-check.yml"
+  ]
+}

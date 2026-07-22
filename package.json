@@ -1,0 +1,51 @@
+{
+  "name": "claude-for-oss",
+  "version": "0.1.0",
+  "description": "Make open-source repos agent-ready: generate and keep fresh orientation packs for Claude Code, Cursor, OpenCode, and friends.",
+  "type": "module",
+  "bin": {
+    "claude-for-oss": "./dist/cli.js",
+    "cfo": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "files": [
+    "dist",
+    "schema",
+    "action",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "cfo": "tsx src/cli.ts",
+    "validate": "tsx validation/measure.ts",
+    "test": "tsx --test src/pack.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "claude",
+    "open-source",
+    "agents",
+    "AGENTS.md",
+    "orientation",
+    "claude-code",
+    "cursor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "glob": "^11.0.1",
+    "yaml": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

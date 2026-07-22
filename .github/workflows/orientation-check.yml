@@ -1,0 +1,51 @@
+name: Orientation pack freshness
+
+on:
+  push:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "pnpm-lock.yaml"
+      - "yarn.lock"
+      - "Cargo.toml"
+      - "go.mod"
+      - "pyproject.toml"
+      - "Makefile"
+      - "README.md"
+      - "src/**"
+      - "lib/**"
+      - "app/**"
+      - ".github/workflows/**"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "docs/agent/**"
+  pull_request:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "pnpm-lock.yaml"
+      - "yarn.lock"
+      - "Cargo.toml"
+      - "go.mod"
+      - "pyproject.toml"
+      - "Makefile"
+      - "README.md"
+      - "src/**"
+      - "lib/**"
+      - "app/**"
+      - ".github/workflows/**"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "docs/agent/**"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check orientation pack
+        uses: ./action/check
+        with:
+          path: "."
+          refresh-on-stale: "false"

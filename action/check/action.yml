@@ -1,0 +1,56 @@
+name: Claude-for-OSS Check
+description: Fail if the Claude-for-OSS orientation pack is missing or stale relative to repo structure
+author: claude-for-oss
+
+inputs:
+  path:
+    description: Repository path to check
+    required: false
+    default: "."
+  refresh-on-stale:
+    description: If true, run refresh when stale (does not commit)
+    required: false
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+
+    - name: Install claude-for-oss
+      shell: bash
+      run: |
+        set -euo pipefail
+        ACTION_ROOT="$(cd "${{ github.action_path }}/.." && pwd)"
+        if [ -f "$ACTION_ROOT/package.json" ] && [ -f "$ACTION_ROOT/src/cli.ts" ]; then
+          cd "$ACTION_ROOT"
+          npm ci
+          npm run build
+          echo "$ACTION_ROOT/node_modules/.bin" >> "$GITHUB_PATH"
+          echo "CFO_CMD=node $ACTION_ROOT/dist/cli.js" >> "$GITHUB_ENV"
+        else
+          npm install -g claude-for-oss@latest
+          echo "CFO_CMD=cfo" >> "$GITHUB_ENV"
+        fi
+
+    - name: Check orientation freshness
+      shell: bash
+      working-directory: ${{ inputs.path }}
+      run: |
+        set -euo pipefail
+        CMD=${CFO_CMD:-cfo}
+        if $CMD check -C .; then
+          echo "Orientation pack is fresh."
+          exit 0
+        fi
+        if [ "${{ inputs.refresh-on-stale }}" = "true" ]; then
+          echo "Pack stale — refreshing locally (no commit)."
+          $CMD refresh -C . --force
+          $CMD check -C .
+        else
+          echo "::error::Orientation pack is stale or missing. Run: npx claude-for-oss refresh"
+          exit 1
+        fi
