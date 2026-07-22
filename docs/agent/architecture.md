@@ -50,14 +50,14 @@ This is **not** another coding agent. It is a **context + contribution map** you
 
 ## Quick start
 
-npm public registry chưa publish được (cần 2FA). Dùng **cài từ GitHub**:
+The package is not on the public npm registry yet (npm publish requires 2FA). Install from **GitHub** instead:
 
 ```bash
-# one-shot (khuyến nghị)
-npx -y github:Duc-python/claude-for-oss#main -- init
-npx -y github:Duc-python/claude-for-oss#main -- check
+# one-shot (recommended)
+npx -y --package=github:Duc-python/claude-for-oss#main cfo init
+npx -y --package=github:Duc-python/claude-for-oss#main cfo check
 
-# hoặc cài global từ GitHub
+# or install globally from GitHub
 npm install -g github:Duc-python/claude-for-oss#main
 cfo init
 cfo refresh
@@ -75,6 +75,5 @@ cfo pr          # requires GitHub CLI (`gh`)
 | `docs/agent/blast-radius.md` | Heuristic dependency hints |
 | `docs/agent/pack.meta.json` | Structure hash for freshness |
 | `.github/GOOD_FIRST_AGENT.md` | Issue template for agent-friendly work |
-| `.claude/skills/orient/SKILL.md` | `/orient` skill |
-| `.claude/skills/find-test/
+| `.claude/skills
 ```

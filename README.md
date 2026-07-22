@@ -9,14 +9,14 @@ This is **not** another coding agent. It is a **context + contribution map** you
 
 ## Quick start
 
-npm public registry chưa publish được (cần 2FA). Dùng **cài từ GitHub**:
+The package is not on the public npm registry yet (npm publish requires 2FA). Install from **GitHub** instead:
 
 ```bash
-# one-shot (khuyến nghị)
-npx -y github:Duc-python/claude-for-oss#main -- init
-npx -y github:Duc-python/claude-for-oss#main -- check
+# one-shot (recommended)
+npx -y --package=github:Duc-python/claude-for-oss#main cfo init
+npx -y --package=github:Duc-python/claude-for-oss#main cfo check
 
-# hoặc cài global từ GitHub
+# or install globally from GitHub
 npm install -g github:Duc-python/claude-for-oss#main
 cfo init
 cfo refresh
@@ -50,17 +50,17 @@ cfo pr [-C path] [--draft] [--base main]
 
 ## GitHub Action
 
-Fail CI when the pack is missing or stale (e.g. after `package.json` / layout changes):
+Fail CI when the pack is missing or stale (for example after `package.json` or layout changes):
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: <your-org>/claude-for-oss/action/check@main
+- uses: Duc-python/claude-for-oss/action/check@main
   with:
     path: "."
     refresh-on-stale: "false"
 ```
 
-This repo’s example workflow: [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml).
+Example workflow in this repo: [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml).
 
 ## Validation (Phase 0)
 

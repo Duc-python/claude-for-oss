@@ -20,7 +20,7 @@ Or shields.io style:
 
 ## How to get listed
 
-1. `npx claude-for-oss init`
+1. `npx -y --package=github:Duc-python/claude-for-oss#main cfo init`
 2. Merge the orientation pack (and keep it fresh with `cfo check` in CI)
 3. Open an issue/PR on [claude-for-oss](https://github.com/Duc-python/claude-for-oss) adding your repo below
 
@@ -36,6 +36,6 @@ Or shields.io style:
 ## Maintain freshness
 
 ```bash
-npx claude-for-oss check
-npx claude-for-oss refresh   # when structure drifts
+npx -y --package=github:Duc-python/claude-for-oss#main cfo check
+npx -y --package=github:Duc-python/claude-for-oss#main cfo refresh
 ```
