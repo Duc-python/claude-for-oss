@@ -27,7 +27,19 @@ npm run validate
 
 ## Release
 
+### GitHub (default while npm 2FA blocked)
+
+```bash
+npm install -g github:Duc-python/claude-for-oss#main
+# or
+npx -y github:Duc-python/claude-for-oss#main -- check
+```
+
+`prepare` runs `tsc` on install from git.
+
+### npmjs.com (when you can enable 2FA / publish token)
+
 1. Bump `package.json` version
 2. `npm run build && npm test`
 3. Tag `vX.Y.Z` and push
-4. `npm publish` (requires npm auth)
+4. `npm publish --access public`

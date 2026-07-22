@@ -9,16 +9,15 @@ This is **not** another coding agent. It is a **context + contribution map** you
 
 ## Quick start
 
-```bash
-# in any git repo
-npx claude-for-oss init
-npx claude-for-oss check
-```
-
-Or install globally:
+npm public registry chưa publish được (cần 2FA). Dùng **cài từ GitHub**:
 
 ```bash
-npm install -g claude-for-oss
+# one-shot (khuyến nghị)
+npx -y github:Duc-python/claude-for-oss#main -- init
+npx -y github:Duc-python/claude-for-oss#main -- check
+
+# hoặc cài global từ GitHub
+npm install -g github:Duc-python/claude-for-oss#main
 cfo init
 cfo refresh
 cfo check

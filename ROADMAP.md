@@ -8,7 +8,8 @@
 - CI build/test + fixed action package-root detection
 
 ## Next
-- Publish `claude-for-oss` to npm
+- Publish to npm when 2FA / granular publish token is available
+- Until then: distribute via `github:Duc-python/claude-for-oss#main` (`prepare` builds on install)
 - Optional LLM polish pass for AGENTS.md prose (BYOK)
 - Monorepo-aware module maps (workspaces / cargo workspace)
 - `cfo badge` helper to inject README badges
