@@ -159,8 +159,26 @@ function detectCommands(
     commands.build ??= "go build ./...";
     commands.test ??= "go test ./...";
   }
-  if (existsSync(join(root, "pyproject.toml")) || existsSync(join(root, "pytest.ini"))) {
+  if (
+    existsSync(join(root, "pyproject.toml")) ||
+    existsSync(join(root, "pytest.ini")) ||
+    existsSync(join(root, "requirements.txt")) ||
+    existsSync(join(root, "setup.py"))
+  ) {
+    commands.install ??= existsSync(join(root, "requirements.txt"))
+      ? "pip install -r requirements.txt"
+      : "pip install -e .";
     commands.test ??= "pytest";
+  }
+  if (existsSync(join(root, "composer.json"))) {
+    commands.install ??= "composer install";
+    const composer = safeRead(join(root, "composer.json"));
+    try {
+      const c = composer ? (JSON.parse(composer) as { scripts?: Record<string, string> }) : {};
+      if (c.scripts?.test) commands.test ??= "composer test";
+    } catch {
+      /* ignore */
+    }
   }
   if (existsSync(join(root, "Makefile"))) {
     const make = safeRead(join(root, "Makefile")) ?? "";

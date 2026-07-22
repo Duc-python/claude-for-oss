@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run validate
+        env:
+          # Remote survey is best-effort; allow offline fixtures gate to decide success
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Smoke CLI
+        run: |
+          node dist/cli.js --help
+          node dist/cli.js check -C .
+          node dist/cli.js refresh -C . --dry-run

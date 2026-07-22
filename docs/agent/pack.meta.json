@@ -1,8 +1,8 @@
 {
   "packVersion": "1.0.0",
-  "generatedAt": "2026-07-22T09:24:01.128Z",
-  "generator": "claude-for-oss@0.1.0",
-  "structureHash": "a1c993ded219b414",
+  "generatedAt": "2026-07-22T09:31:23.529Z",
+  "generator": "claude-for-oss@0.1.1",
+  "structureHash": "0fd342b4dbc98516",
   "root": "/home/crduser/Projects/claude-for-oss",
   "primaryLanguage": "TypeScript",
   "packageManager": "npm",
@@ -23,6 +23,7 @@
     "validation"
   ],
   "ciWorkflows": [
+    ".github/workflows/ci.yml",
     ".github/workflows/orientation-check.yml"
   ]
 }

@@ -13,7 +13,7 @@ program
   .description(
     "Make open-source repos agent-ready: generate & refresh orientation packs",
   )
-  .version("0.1.0");
+  .version("0.1.1");
 
 program
   .command("init")

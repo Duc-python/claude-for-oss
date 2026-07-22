@@ -1,6 +1,6 @@
 {
   "name": "claude-for-oss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Make open-source repos agent-ready: generate and keep fresh orientation packs for Claude Code, Cursor, OpenCode, and friends.",
   "type": "module",
   "bin": {
@@ -12,6 +12,7 @@
     "dist",
     "schema",
     "action",
+    "badges",
     "LICENSE",
     "README.md"
   ],
@@ -21,8 +22,16 @@
     "cfo": "tsx src/cli.ts",
     "validate": "tsx validation/measure.ts",
     "test": "tsx --test src/pack.test.ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build && npm test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duc-python/claude-for-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Duc-python/claude-for-oss/issues"
+  },
+  "homepage": "https://github.com/Duc-python/claude-for-oss#readme",
   "keywords": [
     "claude",
     "open-source",
@@ -32,7 +41,7 @@
     "claude-code",
     "cursor"
   ],
-  "author": "",
+  "author": "Duc-python",
   "license": "MIT",
   "engines": {
     "node": ">=18"
@@ -40,7 +49,6 @@
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^12.1.0",
-    "glob": "^11.0.1",
     "yaml": "^2.7.0"
   },
   "devDependencies": {

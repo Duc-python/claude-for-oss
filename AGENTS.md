@@ -32,6 +32,7 @@ See [`docs/agent/architecture.md`](docs/agent/architecture.md) and [`docs/agent/
 
 ## CI
 
+- [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — CI (jobs: test)
 - [`.github/workflows/orientation-check.yml`](.github/workflows/orientation-check.yml) — Orientation pack freshness (jobs: check)
 
 ## Conventions
@@ -51,4 +52,4 @@ See [`docs/agent/architecture.md`](docs/agent/architecture.md) and [`docs/agent/
 Pack format: [`docs/agent/PACK_SPEC.md`](docs/agent/PACK_SPEC.md)
 
 ---
-_Pack structure hash: `a1c993ded219b414`_
+_Pack structure hash: `0fd342b4dbc98516`_

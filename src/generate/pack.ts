@@ -256,7 +256,7 @@ export function generatePack(
   const meta: OrientationPackMeta = {
     packVersion: PACK_VERSION,
     generatedAt: new Date().toISOString(),
-    generator: "claude-for-oss@0.1.0",
+    generator: "claude-for-oss@0.1.1",
     structureHash: signals.structureHash,
     root: signals.root,
     primaryLanguage: signals.primaryLanguage,

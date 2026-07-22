@@ -18,6 +18,7 @@ Generated for agents exploring this repo. Only lists paths that existed when the
 ## Notable files
 
 - [`README.md`](../../README.md)
+- [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
 - [`package.json`](../../package.json)
 - [`tsconfig.json`](../../tsconfig.json)
 

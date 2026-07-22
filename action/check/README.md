@@ -2,15 +2,28 @@
 
 Fails the job when the orientation pack is missing or stale.
 
-## Usage
+## Usage (this repo)
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: ./action/check   # or owner/claude-for-oss/action/check@v0.1.0
+- uses: ./action/check
   with:
     path: "."
     refresh-on-stale: "false"
 ```
+
+## Usage (other repos)
+
+Until the package is on npm:
+
+```yaml
+- uses: actions/checkout@v4
+- uses: Duc-python/claude-for-oss/action/check@main
+  with:
+    path: "."
+```
+
+The action walks up from `action/check` to find `package.json` + `src/cli.ts`, builds locally when present, otherwise installs from `github:Duc-python/claude-for-oss#main`.
 
 ### Inputs
 
@@ -18,5 +31,3 @@ Fails the job when the orientation pack is missing or stale.
 | --- | --- | --- |
 | `path` | `.` | Repo path to check |
 | `refresh-on-stale` | `false` | If `true`, run `cfo refresh --force` then re-check (does not commit) |
-
-When used from this repository, the action builds the local CLI. When published, it falls back to `npm install -g claude-for-oss`.

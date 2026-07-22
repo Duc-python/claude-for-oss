@@ -18,22 +18,46 @@ runs:
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: "20"
+        node-version: "22"
 
     - name: Install claude-for-oss
       shell: bash
       run: |
         set -euo pipefail
-        ACTION_ROOT="$(cd "${{ github.action_path }}/.." && pwd)"
-        if [ -f "$ACTION_ROOT/package.json" ] && [ -f "$ACTION_ROOT/src/cli.ts" ]; then
-          cd "$ACTION_ROOT"
-          npm ci
+
+        # Walk up from this composite action (action/check) to find the package root.
+        find_pkg_root() {
+          local d
+          d="$(cd "${{ github.action_path }}" && pwd)"
+          while [ "$d" != "/" ]; do
+            if [ -f "$d/package.json" ] && { [ -f "$d/src/cli.ts" ] || [ -f "$d/dist/cli.js" ]; }; then
+              printf '%s\n' "$d"
+              return 0
+            fi
+            d="$(dirname "$d")"
+          done
+          return 1
+        }
+
+        if PKG_ROOT="$(find_pkg_root)"; then
+          echo "Using local package at $PKG_ROOT"
+          cd "$PKG_ROOT"
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
           npm run build
-          echo "$ACTION_ROOT/node_modules/.bin" >> "$GITHUB_PATH"
-          echo "CFO_CMD=node $ACTION_ROOT/dist/cli.js" >> "$GITHUB_ENV"
+          BIN="$PKG_ROOT/dist/cli.js"
+          if [ ! -f "$BIN" ]; then
+            echo "::error::Build succeeded but dist/cli.js missing"
+            exit 1
+          fi
+          echo "CFO_BIN=$BIN" >> "$GITHUB_ENV"
         else
-          npm install -g claude-for-oss@latest
-          echo "CFO_CMD=cfo" >> "$GITHUB_ENV"
+          echo "Local package not found — installing from GitHub source"
+          npm install -g "github:Duc-python/claude-for-oss#main"
+          echo "CFO_BIN=$(command -v cfo || command -v claude-for-oss)" >> "$GITHUB_ENV"
         fi
 
     - name: Check orientation freshness
@@ -41,15 +65,24 @@ runs:
       working-directory: ${{ inputs.path }}
       run: |
         set -euo pipefail
-        CMD=${CFO_CMD:-cfo}
-        if $CMD check -C .; then
+        BIN="${CFO_BIN:?CFO_BIN not set}"
+        run_cfo() {
+          if [[ "$BIN" == *.js ]]; then
+            node "$BIN" "$@"
+          else
+            "$BIN" "$@"
+          fi
+        }
+
+        if run_cfo check -C .; then
           echo "Orientation pack is fresh."
           exit 0
         fi
+
         if [ "${{ inputs.refresh-on-stale }}" = "true" ]; then
           echo "Pack stale — refreshing locally (no commit)."
-          $CMD refresh -C . --force
-          $CMD check -C .
+          run_cfo refresh -C . --force
+          run_cfo check -C .
         else
           echo "::error::Orientation pack is stale or missing. Run: npx claude-for-oss refresh"
           exit 1
